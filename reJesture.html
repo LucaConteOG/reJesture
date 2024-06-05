@@ -1,0 +1,1205 @@
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restraunt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .html {
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin:auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5em 1.5em;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            margin-top: 1em;
+            text-transform: uppercase;
+            font-weight: small;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: #16a083;
+        }
+
+        .btn-primary:hover {
+            background: #117964;
+            transition: background 0.3s ease-in-out;
+        }
+
+        /* ............/navbar/............ */
+
+        .navbar input[type="checkbox"],
+        .navbar .hamburger-lines {
+            display: none;
+        }
+
+        .navbar {
+            box-shadow: 0px 5px 10px 0px #aaa;
+            position: fixed;
+            width: 100%;
+            background: #fff;
+            color: #000;
+            opacity: 0.85;
+            height: 50px;
+            z-index: 12;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            height: 64px;
+            align-items: center;
+        }
+
+        .menu-items {
+            order: 2;
+            display: flex;
+        }
+
+        .menu-items li {
+            list-style: none;
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .menu-items a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .menu-items a:hover {
+            color: #117964;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* ............//// Showcase styling ////......... */
+
+        .showcase-area {
+            height: 100vh;
+            background: linear-gradient(rgba(240, 240, 240, 0.144),
+                    rgba(255, 255, 255, 0.336)),
+                url("https://static.vecteezy.com/system/resources/previews/030/326/165/non_2x/appetizing-pumpkin-pie-pie-close-up-the-theme-of-cooking-and-autumn-generative-ai-photo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .showcase-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 1.6rem;
+        }
+
+        .main-title {
+            text-transform: uppercase;
+            margin-top: 1.5em;
+        }
+
+        /* ...... bookingForm ...... */
+
+        #bookingForm,
+        #note {
+            padding: 50px 0;
+            background: #f5f5f7;
+        }
+
+        .bookingForm-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #bookingForm,
+        #note h2 {
+            font-size: 2.3rem;
+        }
+
+        #bookingForm,
+        #note p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        #bookingForm,
+        #note .small {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* ............. Form Animation ........... */
+        .bookingForm-img {
+            flex: 1 1 400px;
+            padding: 30px;
+            transform: translateX(150%);
+            animation: bookingForm-img-animation 1s ease-in-out forwards;
+        }
+
+        @keyframes bookingForm-img-animation {
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .bookingForm-text {
+            flex: 1 1 400px;
+            padding: 30px;
+            margin: auto;
+            transform: translate(-150%);
+            animation: bookingForm-text-animation 1s ease-in-out forwards;
+        }
+
+        @keyframes bookingForm-text-animation {
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .bookingForm-img img {
+            display: block;
+            height: 400px;
+            max-width: 100%;
+            margin: auto;
+            object-fit: cover;
+            object-position: right;
+        }
+
+        .bookingTable-heading {
+            text-align: center;
+            font-size: 3.4rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+        #footer h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            padding: 2.6rem;
+            font-weight: 500;
+            color: #fff;
+            background: rgb(65, 65, 65);
+        }
+
+        /* ......./ showBooking /......... */
+
+        .showBooking-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .showBooking-type:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+
+        .showBooking-type {
+            box-shadow: 5px 5px 10px 0 #aaa;
+        }
+
+        .img-container {
+            margin: 0;
+        }
+
+        @media (max-width: 500px) {
+            html {
+                font-size: 65%;
+            }
+
+            .navbar .menu-items li {
+                font-size: 1.6rem;
+            }
+
+            .testimonial-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .bookingTable-container img {
+                margin: auto;
+            }
+
+            .bookingTable-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .form-container {
+                width: 100%;
+            }
+
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact-img {
+                width: 100%;
+                margin: 3rem auto;
+            }
+
+            .navbar .menu-items li {
+                margin-bottom: 2.5rem;
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .img-container h3 {
+                font-size: 1.5rem;
+            }
+
+            .img-container .btn {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            .showcase-area {
+                height: 50vmax;
+            }
+        }
+
+
+        /* ............ FORM E TABELLA ................ */
+
+        /* ............ Stile dei pulsanti ................... */
+        button {
+            background-color: mediumseagreen;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* ............ Stile di delButton ............. */
+        .deleteButton {
+            background-color: lightcoral;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+
+
+        /* ................. Form di prenotazione ................. */
+        form {
+            font-size: 1.2rem;
+            background-color: #F6F6F6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 98%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* ................... Tabelle delle prenotazioni .......................... */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: mediumseagreen;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        td,
+        th {
+            text-align: left;
+            padding: 10px;
+        }
+
+        /* ............... Righe colorate per differenziare le prenotazioni .............*/
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Modifica e Arrivato pulsanti */
+        button[type="button"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button[type="button"]:hover {
+            background-color: #1e7e34;
+        }
+
+        .arrived {
+            background-color: lightgreen;
+        }
+
+        /* ............... Stili Tavoli Disponibili .............*/
+
+        /* ...... tableForm ...... */
+
+        #tableForm {
+            padding: 50px 0;
+            background: #f5f5f7;
+        }
+
+        .tableForm-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #tableForm h2 {
+            font-size: 2.3rem;
+        }
+
+        #tableForm p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        #tableForm .small {
+            font-size: 1.3rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* ............. Form Animation ........... */
+        .tableForm-img {
+            flex: 1 1 400px;
+            padding: 30px;
+            transform: translateX(150%);
+            animation: tableForm-img-animation 1s ease-in-out forwards;
+        }
+
+        @keyframes tableForm-img-animation {
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .tableForm-text {
+            flex: 1 1 400px;
+            padding: 30px;
+            margin: auto;
+            transform: translate(-150%);
+            animation: tableForm-text-animation 1s ease-in-out forwards;
+        }
+
+        @keyframes tableForm-text-animation {
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .tableForm-img img {
+            display: block;
+            height: 600px;
+            max-width: 100%;
+            margin: auto;
+            object-fit: cover;
+            object-position: right;
+        }
+
+        .bookingTable-heading {
+            text-align: center;
+            font-size: 3.4rem;
+            font-weight: 400;
+            color: #666;
+        }
+
+
+        /* ......./ showBooking /......... */
+
+        .showBooking-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .showBooking-type:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+
+        .showBooking-type {
+            box-shadow: 5px 5px 10px 0 #aaa;
+        }
+
+        .img-container {
+            margin: 0;
+        }
+
+        @media (max-width: 500px) {
+            html {
+                font-size: 65%;
+            }
+
+            .navbar .menu-items li {
+                font-size: 1.6rem;
+            }
+
+            .testimonial-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .bookingTable-container img {
+                margin: auto;
+            }
+
+            .bookingTable-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .form-container {
+                width: 100%;
+            }
+
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact-img {
+                width: 100%;
+                margin: 3rem auto;
+            }
+
+            .navbar .menu-items li {
+                margin-bottom: 2.5rem;
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1200px) {
+            .img-container h3 {
+                font-size: 1.5rem;
+            }
+
+            .img-container .btn {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            .showcase-area {
+                height: 50vmax;
+            }
+        }
+
+        /*......................................................*/
+
+        textarea {
+            background-color: #FFF;
+            color: #222;
+            font-weight: normal;
+            font-size: 24px;
+            resize: none;
+            padding-top: 5px;
+            padding-bottom: 34px;
+            padding-left: 2%;
+
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -webkit-box-shadow: 0px 5px 10px 0px #aaa;
+            box-shadow: 0px 5px 10px 0px #aaa;
+
+            /* Add these lines */
+            width: 100%;
+            height: auto;
+            box-sizing: border-box;
+            /* This makes sure that padding and border are included in the element's total width and height */
+        }
+
+        textarea::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body onload="smoothScroll()">
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox">
+            <ul class="menu-items">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#bookingForm">Inserisci</a></li>
+                <li><a href="#bookingTable">Prenotazioni</a></li>
+                <li><a href="#note">Note</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="showcase-area" id="home">
+        <div class="showcase-container">
+            <h1 class="main-title">Benvenuto in reJesture</h1>
+            <p>Gestione delle prenotazioni e dei clienti</p>
+            <a href="#bookingTable" class="btn btn-primary">Prenotazioni</a>
+        </div>
+    </section>
+
+    <section id="bookingForm">
+        <div class="bookingForm-wrapper container">
+            <div class="bookingForm-text">
+                <p class="small">Inserisci la prenotazione</p>
+                <form id="reservationForm">
+                    <label for="name">Nome:</label>
+                    <input autocomplete="off" type="text" id="name" placeholder="Nome" required>
+                    <br><label for="arrivalTime">Orario di arrivo (HH.MM):</label>
+                    <input autocomplete="off" type="text" id="arrivalTime" placeholder="HH.MM" required>
+                    <br><label for="numPeople">Numero di persone:</label>
+                    <input autocomplete="off" type="text" id="numPeople" placeholder="numero persone" required>
+                    <br><label for="tableNumber">Numero del tavolo:</label>
+                    <input autocomplete="off" type="text" id="tableNumber" placeholder="tavolo" required>
+                    <br><button type="button" onclick="makeReservation()"><b>Prenota</b></button>
+                    <button type="button" onclick="importTable()"><b>Importa</b></button>
+                    <button type="button" onclick="exportTable()"><b>Esporta</b></button>
+                </form>
+            </div>
+
+            <div class="bookingForm-img">
+                <img src="https://i.postimg.cc/mgpwzmx9/bookingForm-photo.jpg" alt="showBooking" />
+            </div>
+        </div>
+    </section>
+
+    <section id="bookingTable">
+        <br><br><br><br>
+        <h2 class="bookingTable-heading" id="bookingTable-heading">Prenotazioni</h2>
+        <table id="table">
+            <tr>
+                <th onclick="order(0)">Ore</th>
+                <th>Nome</th>
+                <th onclick="order(2)">Tav.</th>
+                <th>Num. Pers.</th>
+                <th>Arrivato</th>
+            </tr>
+        </table>
+    </section>
+    </div>
+    <br><br><br><br>
+
+    <section id="note">
+        <div class="bookingForm-wrapper container">
+            <div class="bookingForm-text">
+                <p class="small">Note</p>
+                <form id="noteForm">
+                    <table>
+                        <tr>
+                            <td><button onclick="addNote()" type='button'>Aggiungi nota</button></td>
+                            <td><button onclick="uploadSet()" type='button'>Carica Note</button></td>
+                            <td><button onclick="downloadSet()" type='button'>Scarica Note</button></td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <div id="noteDiv"></div>
+                </form>
+            </div>
+
+            <div class="tableForm-img">
+                <img src="https://burst.shopifycdn.com/photos/vertical-cirtus-slices.jpg?width=1000&format=pjpg&exif=0&iptc=0"
+                    alt="showBooking" />
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h2>reJesture & Jesture &copy; all rights reserved</h2>
+    </footer>
+</body>
+<!-- 
+    .................../ JS Code for smooth scrolling /...................... -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function smoothScroll() {
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on("click", function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $("html, body").animate(
+                        {
+                            scrollTop: $(hash).offset().top,
+                        },
+                        800,
+                        function () {
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                        }
+                    );
+                } // End if
+            });
+        });
+    }
+
+    function makeReservation() {
+        var nome, arrivalTime, tableNumber, numPeople, bookStruct;
+
+        nome = escapeHTML(document.getElementById("name").value.trim());
+        arrivalTime = escapeHTML(document.getElementById("arrivalTime").value);
+        tableNumber = escapeHTML(document.getElementById("tableNumber").value);
+        numPeople = escapeHTML(document.getElementById("numPeople").value);
+
+        // Check for code injection attempts
+        if (containsScript(nome) || containsScript(arrivalTime) || containsScript(tableNumber) || containsScript(numPeople)) {
+            alert("Le iniezioni di codice non sono previste\n");
+            return;
+        }
+
+        // Validate arrivalTime format: int.int
+        if (!/^(\d+)\.(\d+)$/.test(arrivalTime)) {
+            alert("Formato dell'orario di arrivo non valido. Inserire nel formato corretto (es. 12.30)");
+            return;
+        }
+
+        // Validate numPeople format: positive int or string
+        if (!/^\d+$/.test(numPeople) || numPeople == 0) {
+            numPeople = numPeople.toString();
+        } else {
+            numPeople = parseInt(numPeople);
+        }
+
+        // Data inserted in table
+        bookStruct = [arrivalTime, nome, tableNumber, numPeople];
+
+        var table = document.getElementById("table");
+        var row = document.createElement("tr");
+
+        if (bookStruct[1] !== "" || bookStruct[2] !== "" || bookStruct[3] !== "") {
+
+            for (var i = 0; i < 5; i++) {
+                var cell = document.createElement("td");
+
+                // bookStruct info
+                if (i <= 3) {
+                    cell.innerHTML = bookStruct[i];
+                    bookStruct[i] = "";
+                }
+
+                // Arrived and delete buttons
+                else if (i === 4) {
+                    var arrButton = document.createElement("button");
+                    arrButton.innerHTML = "✓".bold(); // ✓ = "✓"
+                    arrButton.addEventListener("click", function () {
+                        if (row.style.backgroundColor === "lightgreen") {
+                            // Restore original color
+                            row.style.backgroundColor = row.getAttribute('data-original-color');
+                        } else {
+                            // Store original color and change to green
+                            row.setAttribute('data-original-color', row.style.backgroundColor);
+                            row.style.backgroundColor = "lightgreen";
+                        }
+                    });
+                    cell.appendChild(arrButton);
+
+                    var editButton = document.createElement("button");
+                    editButton.innerHTML = "⚙";
+                    editButton.style.backgroundColor = "#3399ff"; // Set the initial background color
+
+                    editButton.addEventListener("click", function () {
+                        var isEditMode = row.getAttribute('data-edit-mode') === 'true';
+                        var cells = row.getElementsByTagName('td');
+                        if (isEditMode) {
+                            for (var j = 0; j < 4; j++) {
+                                var input = cells[j].getElementsByTagName('input')[0];
+                                if (input) {
+                                    cells[j].innerHTML = input.value;
+                                }
+                            }
+                            row.setAttribute('data-edit-mode', 'false');
+                            editButton.innerHTML = "⚙";
+                            editButton.style.backgroundColor = "#3399ff"; // Set the background color when not in edit mode
+                        } else {
+                            for (var j = 0; j < 4; j++) {
+                                var text = cells[j].innerHTML;
+                                cells[j].innerHTML = '<input type="text" value="' + text + '">';
+                            }
+                            row.setAttribute('data-edit-mode', 'true');
+                            editButton.innerHTML = "💾".bold();
+                            editButton.style.backgroundColor = "#3399ff"; // Set the background color when in edit mode
+                        }
+                    });
+
+                    cell.appendChild(editButton);
+
+
+                    var delButton = document.createElement("button");
+                    delButton.innerHTML = "X".bold();
+                    delButton.className = "deleteButton";
+                    delButton.addEventListener("click", function () {
+                        var confirmDelete = confirm("Sei sicuro di voler cancellare la prenotazione?");
+                        if (confirmDelete) {
+                            row.remove();
+                        }
+                    });
+                    cell.appendChild(delButton);
+                }
+                row.appendChild(cell);
+            }
+
+            // Check for duplicate "nome" values
+            var rows = table.getElementsByTagName("tr");
+            var duplicate = false;
+            for (var j = 0; j < rows.length; j++) {
+                var nomeCell = rows[j].getElementsByTagName("td")[1];
+                if (nomeCell) {
+                    var existingNome = nomeCell.innerHTML.trim();
+                    if (existingNome !== "" && existingNome === nome) {
+                        duplicate = true;
+                        break;
+                    }
+                }
+            }
+            if (duplicate) {
+                alert("Attenzione! Questo nome è già stato registrato.");
+            } else {
+                table.appendChild(row);
+            }
+        } else {
+            alert("Inserire Orario di Arrivo, Numero del tavolo assegnato e Numero di Persone");
+        }
+
+        emptyForm();
+
+        function emptyForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("arrivalTime").value = "";
+            document.getElementById("tableNumber").value = "";
+            document.getElementById("numPeople").value = "";
+        }
+
+        // Function to escape HTML characters
+        function escapeHTML(data) {
+            var escapeMap = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            };
+            return data.replace(/[&<>"']/g, function (m) { return escapeMap[m]; });
+        }
+
+        // Function to check for script tags or other code injection attempts
+        function containsScript(str) {
+            return /<script|javascript:/i.test(str);
+        }
+    }
+
+    function order(columnIndex) {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("table");
+        switching = true;
+
+        // Remove brackets from all headers
+        var headers = table.getElementsByTagName("TH");
+        for (var j = 0; j < headers.length; j++) {
+            headers[j].innerHTML = headers[j].innerHTML.replace(/\[|\]/g, "");
+        }
+
+        // Add brackets to selected header
+        headers[columnIndex].innerHTML = "[" + headers[columnIndex].innerHTML + "]";
+
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[columnIndex];
+                y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+
+                // Check if the two rows should switch place
+                if (!isNaN(x.innerHTML) && !isNaN(y.innerHTML)) {
+                    // Compare numbers
+                    if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+                    // Compare text
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+
+    function addNote() {
+        var noteDiv = document.getElementById("noteDiv");
+        var textarea = noteDiv.getElementsByTagName('textarea')[0];
+
+        if (textarea) {
+            alert("Una sezione note è già esistente, per favore, modificare quella presente");
+        } else {
+            textarea = document.createElement('textarea');
+            textarea.style.overflow = "hidden";
+            textarea.oninput = function () {
+                this.style.height = "auto";
+                this.style.height = (this.scrollHeight) + "px";
+            };
+            noteDiv.appendChild(textarea);
+        }
+    }
+
+    function uploadSet() {
+        var sure = confirm("Sei sicuro di voler caricare note esterne? Quelle attualmente inserite andranno perse");
+        if (sure) {
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.txt';
+            input.onchange = function (event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                    var contents = event.target.result;
+                    var noteDiv = document.getElementById('noteDiv');
+                    var textarea = noteDiv.getElementsByTagName('textarea')[0];
+                    if (textarea) {
+                        textarea.value = contents; // If textarea exists, replace its content
+                    } else {
+                        textarea = document.createElement('textarea'); // If not, create a new textarea
+                        textarea.value = contents;
+                        noteDiv.appendChild(textarea);
+                    }
+                    textarea.style.overflow = "hidden";
+                    textarea.style.height = "auto";
+                    textarea.style.height = (textarea.scrollHeight) + "px";
+                    textarea.oninput = function () {
+                        this.style.height = "auto";
+                        this.style.height = (this.scrollHeight) + "px";
+                    };
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+    }
+
+
+
+    function downloadSet() {
+        var filename = prompt("Inserisci il nome del file:");
+        if (filename) {
+            var textareas = document.getElementsByTagName('textarea');
+            var content = '';
+            for (var i = 0; i < textareas.length; i++) {
+                if (textareas[i].value.trim() === '') {
+                    alert("Il contenuto della textarea è vuoto o pieno di spazi. Per favore, riempi la textarea");
+                    return;
+                }
+                content += textareas[i].value + '\n';
+            }
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+            element.setAttribute('download', filename + '.txt');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    }
+
+    (function ($) {
+
+        $.fn.numberstyle = function (options) {
+
+            /*
+             * Default settings
+             */
+            var settings = $.extend({
+                value: 0,
+                step: undefined,
+                min: undefined,
+                max: undefined
+            }, options);
+
+            /*
+             * Init every element
+             */
+            return this.each(function (i) {
+
+                /*
+                 * Base options
+                 */
+                var input = $(this);
+
+                /*
+           * Add new DOM
+           */
+                var container = document.createElement('div'),
+                    btnAdd = document.createElement('div'),
+                    btnRem = document.createElement('div'),
+                    min = (settings.min) ? settings.min : input.attr('min'),
+                    max = (settings.max) ? settings.max : input.attr('max'),
+                    value = (settings.value) ? settings.value : parseFloat(input.val());
+                container.className = 'numberstyle-qty';
+                btnAdd.className = (max && value >= max) ? 'qty-btn qty-add disabled' : 'qty-btn qty-add';
+                btnAdd.innerHTML = '+';
+                btnRem.className = (min && value <= min) ? 'qty-btn qty-rem disabled' : 'qty-btn qty-rem';
+                btnRem.innerHTML = '-';
+                input.wrap(container);
+                input.closest('.numberstyle-qty').prepend(btnRem).append(btnAdd);
+
+                /*
+                 * Attach events
+                 */
+                // use .off() to prevent triggering twice
+                $(document).off('click', '.qty-btn').on('click', '.qty-btn', function (e) {
+
+                    var input = $(this).siblings('input'),
+                        sibBtn = $(this).siblings('.qty-btn'),
+                        step = (settings.step) ? parseFloat(settings.step) : parseFloat(input.attr('step')),
+                        min = (settings.min) ? settings.min : (input.attr('min')) ? input.attr('min') : undefined,
+                        max = (settings.max) ? settings.max : (input.attr('max')) ? input.attr('max') : undefined,
+                        oldValue = parseFloat(input.val()),
+                        newVal;
+
+                    //Add value
+                    if ($(this).hasClass('qty-add')) {
+
+                        newVal = (oldValue >= max) ? oldValue : oldValue + step,
+                            newVal = (newVal > max) ? max : newVal;
+
+                        if (newVal == max) {
+                            $(this).addClass('disabled');
+                        }
+                        sibBtn.removeClass('disabled');
+
+                        //Remove value
+                    } else {
+
+                        newVal = (oldValue <= min) ? oldValue : oldValue - step,
+                            newVal = (newVal < min) ? min : newVal;
+
+                        if (newVal == min) {
+                            $(this).addClass('disabled');
+                        }
+                        sibBtn.removeClass('disabled');
+
+                    }
+
+                    //Update value
+                    input.val(newVal).trigger('change');
+
+                });
+
+                input.on('change', function () {
+
+                    const val = parseFloat(input.val()),
+                        min = (settings.min) ? settings.min : (input.attr('min')) ? input.attr('min') : undefined,
+                        max = (settings.max) ? settings.max : (input.attr('max')) ? input.attr('max') : undefined;
+
+                    if (val > max) {
+                        input.val(max);
+                    }
+
+                    if (val < min) {
+                        input.val(min);
+                    }
+                });
+
+            });
+        };
+
+
+        /*
+         * Init
+         */
+
+        $('.numberstyle').numberstyle();
+
+    }(jQuery));
+
+    function exportTable() {
+        var table = document.getElementById("table");
+        var rows = table.getElementsByTagName("tr");
+        var csvContent = "";
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var rowContent = [];
+            for (var j = 0; j < cells.length - 1; j++) { // Exclude buttons column
+                rowContent.push(cells[j].innerText);
+            }
+            csvContent += rowContent.join(",") + "\n";
+        }
+
+        var now = new Date();
+        var dateStr = now.toISOString().slice(0, 10); // YYYY-MM-DD
+        var timeStr = now.toTimeString().slice(0, 8).replace(/:/g, '-'); // HH-MM-SS
+        var filename = `reJE_booking_data_${dateStr}_${timeStr}.csv`;
+
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent));
+        element.setAttribute('download', filename);
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    }
+
+
+    function importTable() {
+        var input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.csv';
+        input.onchange = function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var contents = event.target.result;
+                var substitute = confirm("Vuoi sostituire la tabella attuale con quella importata?");
+                if (substitute) {
+                    clearTable();
+                }
+                populateTableFromCSV(contents);
+            };
+            reader.readAsText(file);
+        };
+        input.click();
+    }
+
+    function clearTable() {
+        var table = document.getElementById("table");
+        while (table.rows.length > 1) { // Keep the header row
+            table.deleteRow(1);
+        }
+    }
+
+    function populateTableFromCSV(contents) {
+        var table = document.getElementById("table");
+        var rows = contents.split("\n");
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].split(",");
+            if (cells.length > 1) { // Ensure the row has data
+                var row = document.createElement("tr");
+
+                for (var j = 0; j < cells.length; j++) {
+                    var cell = document.createElement("td");
+                    cell.innerText = cells[j];
+                    row.appendChild(cell);
+                }
+
+                // Add the arrived and delete buttons
+                var cell = document.createElement("td");
+
+                (function (row) {
+                    var arrButton = document.createElement("button");
+                    arrButton.innerHTML = "✓".bold();
+                    arrButton.addEventListener("click", function () {
+                        if (row.style.backgroundColor === "lightgreen") {
+                            row.style.backgroundColor = row.getAttribute('data-original-color');
+                        } else {
+                            row.setAttribute('data-original-color', row.style.backgroundColor);
+                            row.style.backgroundColor = "lightgreen";
+                        }
+                    });
+                    cell.appendChild(arrButton);
+
+                    var delButton = document.createElement("button");
+                    delButton.innerHTML = "X".bold();
+                    delButton.className = "deleteButton";
+                    delButton.addEventListener("click", function () {
+                        var confirmDelete = confirm("Sei sicuro di voler cancellare la prenotazione?");
+                        if (confirmDelete) {
+                            row.remove();
+                        }
+                    });
+                    cell.appendChild(delButton);
+
+                    row.appendChild(cell);
+                })(row);
+
+                table.appendChild(row);
+            }
+        }
+    }
+
+</script>
+
+</html>
